@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138396324363",
+    "project_id": "cop-logistics-app",
+    "storage_bucket": "cop-logistics-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138396324363:android:6aa34874fb0ecd9cd52d0e",
+        "android_client_info": {
+          "package_name": "com.smithusmc1204.LogisticsApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdFoPezn0o50JMsEGx6u_Xg9yDVXVHDas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
