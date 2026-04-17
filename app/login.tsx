@@ -36,7 +36,8 @@ export default function LoginScreen() {
           <Text style={styles.subtitle}>Team Access Only</Text>
 
           <TextInput 
-            placeholder="Your Email" 
+            placeholder="Your Email"
+            placeholderTextColor="#060000" 
             style={styles.input} 
             onChangeText={setEmail} 
             value={email}
@@ -45,6 +46,7 @@ export default function LoginScreen() {
           
           <TextInput 
             placeholder="Password" 
+            placeholderTextColor="#060000" 
             style={styles.input} 
             secureTextEntry 
             onChangeText={setPassword} 
