@@ -1,52 +1,47 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, FlatList, ImageBackground, Linking, Platform, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const BG_MAP = { uri: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop' };
+const LOCAL_CHURCH_BG = require('../../assets/images/churchbackground.png');
 
-export default function SitesScreen() {
-  const [sites, setSites] = useState<any[]>([]);
+export default function ChurchesScreen() {
+  const [churches, setChurches] = useState<any[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  const fetchSites = async () => {
+  const fetchChurches = async () => {
     try {
-      const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQS0vkOdvbMIgrRUo1MxsKJPaDIdac3ndqmlyshfxyD3gylUPliC-w7OAgUZxEJXINSPGCCoHyBCpX8/pub?gid=1539537199&single=true&output=csv';
+      const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQS0vkOdvbMIgrRUo1MxsKJPaDIdac3ndqmlyshfxyD3gylUPliC-w7OAgUZxEJXINSPGCCoHyBCpX8/pub?gid=304443399&single=true&output=csv';
       const response = await fetch(SHEET_URL);
       const csvText = await response.text();
       const rows = csvText.split('\n');
       const formattedData = rows.slice(1).map((row, index) => {
         const [name, query] = row.split(','); 
-        return { id: `site-${index}`, name: name?.trim() || 'Unknown', query: query?.trim() || '' };
+        return { id: `church-${index}`, name: name?.trim() || 'Unknown', query: query?.trim() || '' };
       }).filter(item => item.query !== ''); 
-      setSites(formattedData);
+      setChurches(formattedData);
     } catch (error) {
-      Alert.alert('Error', 'Could not update locations.');
+      Alert.alert('Error', 'Could not update churches.');
     } finally {
       setRefreshing(false);
     }
   };
 
-  useEffect(() => { fetchSites(); }, []);
+  useEffect(() => { fetchChurches(); }, []);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    fetchSites();
+    fetchChurches();
   }, []);
 
-  const openMaps = (query: string) => {
-    const url = Platform.OS === 'ios' ? `http://maps.apple.com/?q=${query}` : `https://www.google.com/maps/search/?api=1&query=${query}`;
-    Linking.openURL(url);
-  };
-
   return (
-    <ImageBackground source={BG_MAP} style={styles.background}>
+    <ImageBackground source={LOCAL_CHURCH_BG} style={styles.background}>
       <View style={styles.overlayContainer}>
         <FlatList
-          data={sites}
+          data={churches}
           keyExtractor={(item) => item.id}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#007AFF" />}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.card} onPress={() => openMaps(item.query)}>
-              <Text style={styles.cardText}>📍 Navigate: {item.name}</Text>
+            <TouchableOpacity style={styles.card} onPress={() => Linking.openURL(Platform.OS === 'ios' ? `http://maps.apple.com/?q=${item.query}` : `https://www.google.com/maps/search/?api=1&query=${item.query}`)}>
+              <Text style={styles.cardText}>⛪ Navigate: {item.name}</Text>
             </TouchableOpacity>
           )}
         />

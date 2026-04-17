@@ -46,3 +46,6 @@ app-example
 node_modules/
 .expo/
 .git/
+
+google-services.json
+GoogleService-Info.plist

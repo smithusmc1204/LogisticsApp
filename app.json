@@ -8,6 +8,7 @@
     "scheme": "logisticsapp",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true,
       "bundleIdentifier": "com.smithusmc1204.LogisticsApp",
       "infoPlist": {
@@ -16,14 +17,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#ffffff"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.smithusmc1204.LogisticsApp"
+      "package": "com.smithusmc1204.LogisticsApp",
+      "googleServicesFile": "./google-services.json"
     },
+    
     "web": {
       "output": "static",
       "favicon": "./assets/images/icon.png"

@@ -1,33 +1,49 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: '#007AFF' }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Sites',
+          tabBarIcon: ({ color }) => <Ionicons name="map" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="churches"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'churches',
+          tabBarIcon: ({ color }) => <Ionicons name="book" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="podcasts"
+        options={{
+          title: 'podcasts',
+          tabBarIcon: ({ color }) => <Ionicons name="mic" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="supplies"
+        options={{
+          title: 'supplies',
+          tabBarIcon: ({ color }) => <Ionicons name="basket" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="team"
+        options={{
+          title: 'Team',
+          tabBarIcon: ({ color }) => <Ionicons name="people" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="sos"
+        options={{
+          title: 'sos',
+          tabBarIcon: ({ color }) => <Ionicons name="alert" size={28} color={color} />,
         }}
       />
     </Tabs>
