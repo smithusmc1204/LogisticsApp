@@ -14,21 +14,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="churches"
         options={{
-          title: 'churches',
+          title: 'Churches',
           tabBarIcon: ({ color }) => <Ionicons name="book" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="podcasts"
         options={{
-          title: 'podcasts',
+          title: 'Podcasts',
           tabBarIcon: ({ color }) => <Ionicons name="mic" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
         name="supplies"
         options={{
-          title: 'supplies',
+          title: 'Supplies',
           tabBarIcon: ({ color }) => <Ionicons name="basket" size={28} color={color} />,
         }}
       />
@@ -42,7 +42,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="sos"
         options={{
-          title: 'sos',
+          title: 'Help',
           tabBarIcon: ({ color }) => <Ionicons name="alert" size={28} color={color} />,
         }}
       />

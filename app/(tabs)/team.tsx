@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FlatList, ImageBackground, Linking, RefreshControl, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const BG_TECH = { uri: 'https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000&auto=format&fit=crop' };
+//const LOCAL_CHURCH_BG = require('../../assets/images/churchbackground.png');
 
 export default function TeamScreen() {
   const [teamRoster, setTeamRoster] = useState<any[]>([]);
